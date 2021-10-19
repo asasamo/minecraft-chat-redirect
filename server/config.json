@@ -1,0 +1,24 @@
+{
+    "PORT": 3000,
+    "AUTH_TOKEN": "sussybaka420",
+    "instance": "fake",
+    "blankCommand": "tellraw @a [\"\",{\"text\":\"%%prefix_text%% \",\"bold\":true,\"color\":\"%%prefix_color%%\"},{\"text\":\"&&username&& \",\"color\":\"%%name_color%%\"},{\"text\":\"%%suffix_text%% \",\"color\":\"%%suffix_color%%\"},{\"text\":\"&&input&&\",\"color\":\"%%message_color%%\"}]",
+    "chat": {
+        "MOD": {
+            "prefix": {
+                "text": "MOD",
+                "color": "blue"
+            },
+            "name": {
+                "color": "aqua"
+            },
+            "suffix": {
+                "text": ">>",
+                "color": "dark_grey"
+            },
+            "message": {
+                "color": "red"
+            }
+        }
+    }
+}
