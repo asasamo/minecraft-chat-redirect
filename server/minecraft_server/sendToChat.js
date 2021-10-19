@@ -5,9 +5,10 @@ const exec = require('child_process').exec
 
 const createCommand = require('./createCommand')
 
-const send = (chatRole, message) => {
+const send = (chatRole, author, message) => {
     return new Promise((resolve, reject) => {
-        let command = createCommand(chatRole, 'Chein_', message)
+        let command = createCommand(chatRole, author, message)
+        console.log(command)
         if (command == '') {
             console.log('No command given!')
             resolve()

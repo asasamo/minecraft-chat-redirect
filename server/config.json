@@ -13,8 +13,8 @@
                 "color": "aqua"
             },
             "suffix": {
-                "text": ">>",
-                "color": "dark_grey"
+                "text": "»",
+                "color": "dark_gray"
             },
             "message": {
                 "color": "red"

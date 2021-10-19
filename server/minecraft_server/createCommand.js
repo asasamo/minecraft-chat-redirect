@@ -6,13 +6,14 @@ const prop = new RegExp(/%%\w+%%/g)
 
 const matched = [...config.blankCommand.matchAll(prop)]
 
-let finalCommand = "tellraw @a [\"\",{\"text\":\"%%prefix_text%% \",\"bold\":true,\"color\":\"%%prefix_color%%\"},{\"text\":\"&&username&& \",\"color\":\"%%name_color%%\"},{\"text\":\"%%suffix_text%% \",\"color\":\"%%suffix_color%%\"},{\"text\":\"&&input&&\",\"color\":\"%%message_color%%\"}]"
+//let finalCommand = "tellraw @a [\"\",{\"text\":\"%%prefix_text%% \",\"bold\":true,\"color\":\"%%prefix_color%%\"},{\"text\":\"&&username&& \",\"color\":\"%%name_color%%\"},{\"text\":\"%%suffix_text%% \",\"color\":\"%%suffix_color%%\"},{\"text\":\"&&input&&\",\"color\":\"%%message_color%%\"}]"
 
 function createCommand(chatRole = '', username = '', message = '') {
     if (config.chat[`${chatRole}`] == undefined) {
         console.error('Chat role does not exist!')
         return ''
     }
+    let finalCommand = config.blankCommand
     matched.forEach(e => {
         let property = e[0].replaceAll('%', '')
 
@@ -20,6 +21,8 @@ function createCommand(chatRole = '', username = '', message = '') {
     })
     finalCommand = finalCommand.replace('&&input&&', message)
     finalCommand = finalCommand.replace('&&username&&', username)
+
+    console.log(finalCommand)
     return finalCommand
 }
 
