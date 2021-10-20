@@ -1,7 +1,7 @@
 {
     "PORT": 3000,
     "AUTH_TOKEN": "sussybaka420",
-    "instance": "fake",
+    "mcUsername": "sugoma",
     "blankCommand": "tellraw @a [\"\",{\"text\":\"%%prefix_text%% \",\"bold\":true,\"color\":\"%%prefix_color%%\"},{\"text\":\"&&username&& \",\"color\":\"%%name_color%%\"},{\"text\":\"%%suffix_text%% \",\"color\":\"%%suffix_color%%\"},{\"text\":\"&&input&&\",\"color\":\"%%message_color%%\"}]",
     "chat": {
         "MOD": {
@@ -19,6 +19,24 @@
             "message": {
                 "color": "red"
             }
-        }
-    }
+        },
+        "HELPER": {
+            "prefix": {
+                "text": "HELPER",
+                "color": "green"
+            },
+            "name": {
+                "color": "yellow"
+            },
+            "suffix": {
+                "text": "»",
+                "color": "dark_gray"
+            },
+            "message": {
+                "color": "aqua"
+            }
+        },
+        "default": "none"
+    },
+    "defaultCommand": "tellraw @a [\"\",{\"text\":\"&&username&& \",\"color\":\"dark_gray\"},{\"text\":\"» \",\"color\":\"dark_gray\"},{\"text\":\"&&input&&\",\"color\":\"white\"}]"
 }

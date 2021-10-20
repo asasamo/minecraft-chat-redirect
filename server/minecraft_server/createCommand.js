@@ -13,16 +13,21 @@ function createCommand(chatRole = '', username = '', message = '') {
         console.error('Chat role does not exist!')
         return ''
     }
-    let finalCommand = config.blankCommand
-    matched.forEach(e => {
-        let property = e[0].replaceAll('%', '')
+    var finalCommand = ''
+    console.log(`Found role [${chatRole}] with message: ${message}`)
+    if (chatRole == 'default') {
+        finalCommand = config.defaultCommand
+    } else {
+        finalCommand = config.blankCommand
+        matched.forEach(e => {
+            let property = e[0].replaceAll('%', '')
 
-        finalCommand = finalCommand.replace(e[0], config.chat[`${chatRole}`][property.split('_')[0]][property.split('_')[1]])
-    })
+            finalCommand = finalCommand.replace(e[0], config.chat[`${chatRole}`][property.split('_')[0]][property.split('_')[1]])
+        })
+    }
     finalCommand = finalCommand.replace('&&input&&', message)
     finalCommand = finalCommand.replace('&&username&&', username)
 
-    console.log(finalCommand)
     return finalCommand
 }
 
