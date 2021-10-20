@@ -5,6 +5,7 @@ const router = express.Router()
 const sendToChat = require('./../minecraft_server/sendToChat')
 
 const sanitize = new RegExp(/\[\d+:\d+:\d+\]\s\[Render thread\/INFO\]:\s\[CHAT\]/)
+const sanitize2 = new RegExp(/(§4)|(§c)|(§6)|(§e)|(§2)|(§a)|(§b)|(§3)|(§1)|(§9)|(§d)|(§5)|(§f)|(§7)|(§8)|(§0)|(§r)|(§l)|(§o)|(§n)|(§m)|(§k)/g)
 
 const roleRegex = new RegExp(/^[A-Z]+/)
 const authorRegex = new RegExp(/\s\w+\s/) // only first match
@@ -15,7 +16,7 @@ const usernameRegex = new RegExp(/^\w+/)
 
 router.post('/', (req, res) => {
     let message = req.body.message
-    message = message.replace(sanitize, '').trim()
+    message = message.replace(sanitize, '').replaceAll(sanitize2, '').trim()
 
     if (roleRegex.exec(message) != null) {
 
