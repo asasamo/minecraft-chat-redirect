@@ -3,8 +3,14 @@ import time
 import yaml
 import requests
 
+print("Loading config...", end=" ")
 with open("config.yml", "r") as ymlfile:
     config = yaml.load(ymlfile, Loader=yaml.FullLoader)
+if config:
+    print("loaded!")
+else:
+    print("error")
+    exit()
 
 
 SERVER_URI = "http://" + config["server"]["host"] + ":" + \
@@ -35,5 +41,7 @@ if __name__ == "__main__":
             if r.status_code == 200:
                 print("Request sent, status code: " +
                       str(r.status_code) + ", " + r.text)
-            else:
+            elif r.status_code == 401:
                 print("Request failed, check the api-token!")
+            else:
+                print("Request failed, server error!")

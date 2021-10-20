@@ -13,8 +13,19 @@ const send = (chatRole, author, message) => {
             console.log('No command given!')
             resolve()
         }
-        //exec(`/usr/bin/screen -p 0 -S mc-${config.instance} -X eval 'stuff "${command}"\\015'`, (err, stdout, stderr) => {
-        exec(`echo "/usr/bin/screen -p 0 -S mc-${config.instance} -X eval 'stuff "${command}"\\015'"`, (err, stdout, stderr) => {
+        let splitted = command.match(/.{1,5}/g)
+
+        splitted.forEach(e => {
+            exec(`/usr/bin/screen -p 0 -S mc-${config.instance} -X eval 'stuff '${e}''`, (err, stdout, stderr) => {
+                if (err) {
+                    reject(err)
+                    console.error(stderr)
+                } else {
+                    resolve()
+                }
+            })
+        })
+        exec(`/usr/bin/screen -p 0 -S mc-${config.instance} -X eval 'stuff '\\015''`, (err, stdout, stderr) => {
             if (err) {
                 reject(err)
                 console.error(stderr)
