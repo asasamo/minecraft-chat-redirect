@@ -10,6 +10,7 @@ const bot = mineflayer.createBot({
 
 bot.on('spawn', () => {
     console.log("Bot entered world!")
+    bot.chat('/v')
 })
 
 const createCommand = require('./createCommand')
