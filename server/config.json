@@ -38,5 +38,5 @@
         },
         "default": "none"
     },
-    "defaultCommand": "tellraw @a [\"\",{\"text\":\"&&username&& \",\"color\":\"dark_gray\"},{\"text\":\"» \",\"color\":\"dark_gray\"},{\"text\":\"&&input&&\",\"color\":\"white\"}]"
+    "defaultCommand": "tellraw @a [\"\",{\"text\":\"&&username&& \",\"color\":\"gray\"},{\"text\":\"» \",\"color\":\"dark_gray\"},{\"text\":\"&&input&&\",\"color\":\"white\"}]"
 }
